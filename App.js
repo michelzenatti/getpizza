@@ -1,31 +1,35 @@
-import React, {useState} from 'react';
-import {View , Text, StyleSheet, TouchableOpacity, TouchableOpacityBase} from 'react-native'
+import React from 'react';
+import {View , StyleSheet, Image} from 'react-native'
+import {Header, Icon} from 'react-native-elements'
+import logo from './assets/logo.png';
 
 const App = () => {
-
-  const [numero, setNumero] = useState(10);
-
-  function alteraValor(){
-    setNumero(numero+10);
-  }
-   
-  
   return(
-    <View style={estilo.conteudo}> 
-       <TouchableOpacity onPress={alteraValor}>
-         <Text>Toque aqui</Text>
-        </TouchableOpacity>
-        <Text>{numero}</Text>  
-    </View>
+    <View style={styles.container}>
+      <Header
+        backgroundColor='#131313'
+      >
+        <View/>
+        <Image source={logo} style={styles.logo}/>
+        <Icon
+          type='font-awesome'
+          color='#fff'
+          name='shopping-cart'
+        />
+      </Header>
+    
+    </View> 
   )
 }
-
-const estilo = StyleSheet.create({
-  conteudo:{
-    justifyContent: "center",
-    alignItems: "center",
+const styles = StyleSheet.create({
+  container:{
     flex:1
-  } 
+  },
+  logo:{
+    width:30,
+    height:30
+  }
+ 
 });
 
 export default App;
