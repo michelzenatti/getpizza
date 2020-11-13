@@ -1,26 +1,44 @@
 import React from 'react';
-import {View , StyleSheet, Image} from 'react-native'
-import {Header, Icon} from 'react-native-elements'
-import logo from './assets/logo.png';
+import {View , StyleSheet, Image, FlatList, Text} from 'react-native'
+import GetPizzaHeader from'./components/GetPizzaHeader';
+import ProductRow from './components/ProductRow';
+
+const datas = [
+  {
+    id:1,
+    name: "Quatro Queijos",
+    desc: "Mussarela, Parmesão, Provolone, Catupiry e Molho de Tomate"
+  },
+  {
+    id:2,
+    name: "Rúcula",
+    desc: "Mussarela de Búfala, Rúcula e Molho de Tomate"
+  },
+  {
+    id:3,
+    name: "Berinjela",
+    desc: "Mussarela e antepasto de berinjela"
+  }
+]  
 
 const App = () => {
   return(
     <View style={styles.container}>
-      <Header
-        backgroundColor='#131313'
-      >
-        <View/>
-        <Image source={logo} style={styles.logo}/>
-        <Icon
-          type='font-awesome'
-          color='#fff'
-          name='shopping-cart'
+      <GetPizzaHeader/> 
+    <FlatList
+      data={datas}
+      keyExtractor={item => item.id.toString()}
+      renderItem={({item}) => 
+        <ProductRow
+          name={item.name}
+          desc={item.desc}
         />
-      </Header>
-    
-    </View> 
+      }
+    />
+  
+    </View>
   )
-}
+    }
 const styles = StyleSheet.create({
   container:{
     flex:1

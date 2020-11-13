@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "getpizza",
+    "name": "Get Pizza",
     "slug": "getpizza",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#131313"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
