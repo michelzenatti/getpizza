@@ -1,15 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 const ProductRow = (props)=>{
     return(
         <View style={styles.card}>
-            <View>
-                <Text style={styles.title}>{props.name}</Text>
-          </View>
-          <View>
-              <Text style={styles.desc}>{props.desc}</Text>
+            <View style={styles.left}>
+                <View style={styles.titleAndPrice}>   
+                    <Text style={styles.title}>{props.name}</Text>
+                    <Text style={styles.price}>R$ {props.price}</Text>
+                </View>
+                <View>
+                    <Text style={styles.desc}>{props.desc}</Text>
+                    </View>
+                </View>
+                <View style={styles.right}>
+                    <Image source={{uri: props.img}} style={styles.image}/>
             </View>
         </View>  
     )
@@ -19,15 +25,50 @@ const styles = StyleSheet.create({
     card: {
         marginTop: 25,
         marginBottom: 5,
-        shadowColor: '#000',
-        elevation: 1,
+        flex:1,
+        flexDirection: "row",
+
+        borderRadius:10,
+        shadowColor: "#000",
+        shadowOffset:{
+            width:0,
+            height:-5
+        },
+        shadowOpacity:0.1,
+        shadowRadius: 20,
+        elevation: 5,
+        backgroundColor:"#fff",
+        marginHorizontal:10,
+        overflow: "hidden"
     },
     title:{
         fontSize: 20,
-        color:"#e22424"
+        color:"#e22424",
+        fontWeight: "bold"
     },
     desc:{
         color: "#626262",
+    },
+    image:{
+        width:85,
+        height:70
+    },
+    left:{
+        flex:3,
+        paddingHorizontal:10
+    },
+    right:{
+        flex:1
+    },
+    price:{
+        fontSize:15,
+        color:"#e22424",
+        fontWeight: "bold"
+    },
+    titleAndPrice:{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
     }
 });
 
