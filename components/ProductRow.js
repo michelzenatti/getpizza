@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import AddButton from './AddButton';
+import QtdButton from './QtdButton';
 
 
 const ProductRow = (props)=>{
     return(
-        <View style={styles.card}>
-            <View style={styles.left}>
-                <View style={styles.titleAndPrice}>   
-                    <Text style={styles.title}>{props.name}</Text>
-                    <Text style={styles.price}>R$ {props.price}</Text>
+        <View>
+            <View style={styles.card}>
+                <View style={styles.left}>
+                    <View style={styles.titleAndPrice}>   
+                        <Text style={styles.title}>{props.name}</Text>
+                        <Text style={styles.price}>R$ {props.price}</Text>
                 </View>
                 <View>
                     <Text style={styles.desc}>{props.desc}</Text>
@@ -17,6 +20,9 @@ const ProductRow = (props)=>{
                 <View style={styles.right}>
                     <Image source={{uri: props.img}} style={styles.image}/>
             </View>
+        </View>
+        <QtdButton/>
+        <AddButton/>
         </View>  
     )
 }
