@@ -22,7 +22,6 @@ const ProductRow = (props)=>{
             </View>
         </View>
         <QtdButton/>
-        <AddButton/>
         </View>  
     )
 }

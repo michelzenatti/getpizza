@@ -16,18 +16,24 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     btnAdd:{
-        width:40,
+        width:190,
         height:40,
         backgroundColor:"#f0bf00",
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
         elevation:2,
-        justifyContent: "right",
-        alignItems:"right"
+        justifyContent:"flex-end",
+        alignItems:"flex-end",
+        flexDirection: "row",
+        marginHorizontal:150,
     },
     textBtn:{
         fontSize: 15,
         color: "#fff",
         fontWeight: "bold"
     }
-}),
+});
 
 export default AddButton;

@@ -1,17 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const QtdButton = () => {
+
+    const [qtd, setQtd] = useState(1);
+    
+    const addPizza = () => {
+        setQtd(qtd+1);
+    }
+
+    const removePizza = () => {
+        if(qtd>0){
+            setQtd(qtd-1);
+        }
+    }
+   
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={styles.btnLeft}>
-                <Text style={styles.textBtn}>-</Text>
-            </TouchableOpacity>
-            <View style={styles.input}>
-                <Text style={styles.textInput}>01</Text>
+            <View style={styles.qtdButton}>
+                <TouchableOpacity 
+                    onPress={removePizza}
+                    style={styles.btnLeft}
+                >
+                    <Text style={styles.textBtn}>-</Text>
+                </TouchableOpacity>
+                <View style={styles.input}>
+                    <Text style={styles.textInput}>{qtd}</Text>
+                </View>
+                <TouchableOpacity 
+                    onPress={addPizza}
+                    style={styles.btnRight}
+                >
+                    <Text style={styles.textBtn}>+</Text>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.btnRight}>
-                 <Text style={styles.textBtn}>+</Text>
+            <TouchableOpacity>
+                <View style={styles.addButton}>
+                    <Text style={styles.whiteText}>Adicionar ao Carrinho</Text>
+                </View>
             </TouchableOpacity>
         </View>
     )
@@ -19,6 +45,10 @@ const QtdButton = () => {
 
 const styles = StyleSheet.create({
     container:{
+        flexDirection:"row",
+        justifyContent: "space-around"
+    },
+    qtdButton:{
         flexDirection:"row"
     },
     btnLeft:{
@@ -58,7 +88,18 @@ const styles = StyleSheet.create({
     textInput:{
         fontSize: 15,
         color: "#676767",
-        
+    },
+    addButton:{
+        width: 150,
+        height: 40,
+        backgroundColor: "#f0bf00",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+        elevation: 2
+    },   
+    whiteText:{
+        color:"#fff"
     }
 
 });
