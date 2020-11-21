@@ -1,11 +1,23 @@
-import React from 'react';
-import {View , StyleSheet, Image, FlatList, Text} from 'react-native'
+import React, {useState, useEffect} from 'react';
+import {View , StyleSheet, FlatList } from 'react-native'
 import GetPizzaHeader from'../components/GetPizzaHeader';
 import ProductRow from '../components/ProductRow';
-import pizzas from '../data/pizzas';
+import axios from 'axios';
   
 
 const App = () => {
+  
+  const [pizzas, setPizzas] = useState();
+
+  const fetchPizza = async () =>{
+    const response = await axios.get('https://my-json-server.typicode.com/michelzenatti/getpizza-data/pizzas')
+    setPizzas(response.data);
+  }
+  
+  useEffect(()=>{
+    fetchPizza();
+  });
+
   return(
     <View style={styles.container}>
       <GetPizzaHeader/> 

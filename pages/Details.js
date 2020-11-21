@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import GetPizzaHeader from'../components/GetPizzaHeader';
+import ProductRow from'../components/ProductRow';
 
 const Details = ()=>{
     const route = useRoute();
@@ -13,18 +14,6 @@ const Details = ()=>{
             <Text>pizza{pizza.name}</Text>
         </View>
     <GetPizzaHeader/> 
-    <FlatList
-      data={pizzas}
-      keyExtractor={item => item.id.toString()}
-      renderItem={({item}) => 
-        <ProductRow
-          name={item.name}
-          desc={item.desc}
-          img={item.img}
-          price={item.price}
-        />
-      }
-    />
         </View>
   )
     }
@@ -36,6 +25,6 @@ const styles = StyleSheet.create({
     width:30,
     height:30
   },
-}),
+})
 
-export default Details
+export default Details;
